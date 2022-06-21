@@ -41,7 +41,6 @@
 
     self.userIdAndDate.text = userNameAndDate;
     self.tweetText.text = self.tweet.text;
-    [self.tweetText sizeToFit];
     [self.tweetText setLineBreakMode:NSLineBreakByClipping];
     self.labelReplies.text = [NSString stringWithFormat:@"%i", self.tweet.repliesCount];
     self.labelRetweets.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];
@@ -70,6 +69,8 @@
     
     NSURLRequest *posterReq = [NSURLRequest requestWithURL:URL];
     [self.profileImage setImageWithURLRequest:posterReq placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        self.profileImage.layer.cornerRadius = 24;
+        self.profileImage.clipsToBounds = TRUE;
         if (response) {
             self.profileImage.alpha = 0.0;
             self.profileImage.image = image;
