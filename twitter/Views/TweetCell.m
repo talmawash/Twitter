@@ -9,6 +9,8 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
+
+
 @interface TweetCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
@@ -36,6 +38,7 @@
 - (void)loadTweet {
     self.userName.text = self.tweet.user.name;
     NSString *userNameAndDate = [NSString stringWithFormat:@"@%@ · %@", self.tweet.user.screenName, self.tweet.createdAtString];
+
     self.userIdAndDate.text = userNameAndDate;
     self.tweetText.text = self.tweet.text;
     [self.tweetText sizeToFit];
