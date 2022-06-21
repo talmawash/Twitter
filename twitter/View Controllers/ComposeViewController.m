@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *draftText;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 
 @end
@@ -20,6 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.draftText.delegate = self;
+    self.draftText.layer.borderWidth = 1.0f;
+    self.draftText.layer.borderColor = [[UIColor grayColor] CGColor];
+
 }
 - (IBAction)closeTapped:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -38,6 +43,9 @@
     
 }
 
+- (void)textViewDidChange:(UITextView *)textView {
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", self.draftText.text.length];
+}
 /*
 #pragma mark - Navigation
 

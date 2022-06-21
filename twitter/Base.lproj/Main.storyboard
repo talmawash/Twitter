@@ -262,20 +262,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mxn-X8-l05">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="30" y="56" width="354" height="243"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEt-Sd-FOa">
+                                <rect key="frame" x="373" y="307" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dqt-6s-b32"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dqt-6s-b32" firstAttribute="trailing" secondItem="Mxn-X8-l05" secondAttribute="trailing" id="C90-V8-G0B"/>
-                            <constraint firstItem="Mxn-X8-l05" firstAttribute="leading" secondItem="dqt-6s-b32" secondAttribute="leading" id="KhS-5l-5z8"/>
-                            <constraint firstItem="dqt-6s-b32" firstAttribute="bottom" secondItem="Mxn-X8-l05" secondAttribute="bottom" id="Qkk-Hb-fBF"/>
-                            <constraint firstItem="Mxn-X8-l05" firstAttribute="top" secondItem="dqt-6s-b32" secondAttribute="top" id="w3M-Ly-8Ph"/>
+                            <constraint firstItem="dqt-6s-b32" firstAttribute="bottom" secondItem="Mxn-X8-l05" secondAttribute="bottom" constant="543" id="8PP-9y-eb7"/>
+                            <constraint firstItem="Mxn-X8-l05" firstAttribute="leading" secondItem="dqt-6s-b32" secondAttribute="leading" constant="30" id="BYl-kC-cB7"/>
+                            <constraint firstItem="Mxn-X8-l05" firstAttribute="top" secondItem="dqt-6s-b32" secondAttribute="top" id="gau-gE-aU9"/>
+                            <constraint firstItem="ZEt-Sd-FOa" firstAttribute="top" secondItem="Mxn-X8-l05" secondAttribute="bottom" constant="8" id="hZZ-M5-Amw"/>
+                            <constraint firstItem="dqt-6s-b32" firstAttribute="trailing" secondItem="ZEt-Sd-FOa" secondAttribute="trailing" constant="30" id="jOb-sW-Rff"/>
+                            <constraint firstItem="dqt-6s-b32" firstAttribute="trailing" secondItem="Mxn-X8-l05" secondAttribute="trailing" constant="30" id="yjO-4h-SKa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xlg-Uv-CVn">
@@ -291,6 +299,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countLabel" destination="ZEt-Sd-FOa" id="mi3-yL-dTY"/>
                         <outlet property="draftText" destination="Mxn-X8-l05" id="Rvb-GJ-1Iz"/>
                     </connections>
                 </viewController>
