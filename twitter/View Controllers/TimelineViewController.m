@@ -28,7 +28,9 @@
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
 }
-
+- (void)detailsUpdated {
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.composeButton.titleLabel setHidden:YES];
@@ -41,10 +43,6 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self beginRefresh:self.refreshControl];
-    
-}
-
-- (IBAction)didTapTweet:(id)sender {
     
 }
 
@@ -109,6 +107,7 @@
         DetailsViewController *dvc = (DetailsViewController*)navigationController.topViewController;
         Tweet *selectedTweet = self.arrayOfTweets[self.tableView.indexPathForSelectedRow.row];
         dvc.tweet = selectedTweet;
+        dvc.delegate = self;
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
     }
 }

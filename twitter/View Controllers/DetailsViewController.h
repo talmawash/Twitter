@@ -11,8 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol DetailsViewControllerDelegate
+
+- (void)detailsUpdated;
+
+@end
+
 @interface DetailsViewController : UITableViewController
 @property (strong, nonatomic) Tweet *tweet;
+@property (nonatomic, weak) id<DetailsViewControllerDelegate> delegate;
+
 @end
 
 NS_ASSUME_NONNULL_END

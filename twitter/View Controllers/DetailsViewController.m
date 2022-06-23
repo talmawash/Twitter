@@ -111,6 +111,7 @@
             }
             else{
                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                [self.delegate detailsUpdated];
             }
         }];
     }
@@ -124,6 +125,7 @@
             }
             else{
                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+                [self.delegate detailsUpdated];
             }
         }];
     }
@@ -141,6 +143,7 @@
             }
             else{
                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                [self.delegate detailsUpdated];
             }
         }];
     }
@@ -154,6 +157,7 @@
             }
             else{
                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+                [self.delegate detailsUpdated];
             }
         }];
     }
