@@ -9,6 +9,7 @@
 #import "TimelineViewController.h"
 #import "APIManager.h"
 #import "LoginViewController.h"
+#import "DetailsViewController.h"
 #import "AppDelegate.h"
 #import "TweetCell.h"
 
@@ -34,7 +35,6 @@
     [self.composeButton setTitle:@"" forState:UIControlStateNormal];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.allowsSelection = FALSE;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -103,6 +103,13 @@
     if ([navigationController.topViewController isKindOfClass:[ComposeViewController class]]) {
         ComposeViewController *dvc = (ComposeViewController*)navigationController.topViewController;
         dvc.delegate = self;
+    }
+    else if ([navigationController.topViewController isKindOfClass:[DetailsViewController class]]) {
+        NSLog(@"Show tweet details");
+        DetailsViewController *dvc = (DetailsViewController*)navigationController.topViewController;
+        Tweet *selectedTweet = self.arrayOfTweets[self.tableView.indexPathForSelectedRow.row];
+        dvc.tweet = selectedTweet;
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
     }
 }
 

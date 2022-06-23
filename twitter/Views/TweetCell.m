@@ -37,12 +37,12 @@
 
 - (void)loadTweet {
     self.userName.text = self.tweet.user.name;
-    NSString *userNameAndDate = [NSString stringWithFormat:@"@%@ · %@", self.tweet.user.screenName, self.tweet.createdAtString];
+    NSString *userNameAndDate = [NSString stringWithFormat:@"@%@ · %@", self.tweet.user.screenName, self.tweet.shortTimeAgo];
 
     self.userIdAndDate.text = userNameAndDate;
     self.tweetText.text = self.tweet.text;
     [self.tweetText setLineBreakMode:NSLineBreakByClipping];
-    self.labelReplies.text = [NSString stringWithFormat:@"%i", self.tweet.repliesCount];
+    self.labelReplies.text = @"";// premium feature [NSString stringWithFormat:@"%i", self.tweet.repliesCount];
     self.labelRetweets.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];
     self.labelFavs.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
     [self.repliesButton setTitle:@"" forState:UIControlStateNormal];
