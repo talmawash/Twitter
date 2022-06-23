@@ -37,7 +37,8 @@
     
     // Do any additional setup after loading the view.
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
+    self.tableView.tableHeaderView = nil;
+
     self.labelTweet.text = self.tweet.text;
     self.labelName.text = self.tweet.user.name;
     self.labelUsername.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
@@ -71,6 +72,15 @@
     } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
         
     }];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
+    return CGFLOAT_MIN;
 }
 
 - (void)updateRetweetsAndFavorites{
