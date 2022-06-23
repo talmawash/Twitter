@@ -291,7 +291,8 @@
                                     <action selector="tweetTapped:" destination="ri1-i8-04p" id="SaF-Bs-ah2"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem enabled="NO" title="0" id="LJi-xi-4V3">
+                            <barButtonItem title="0" id="LJi-xi-4V3">
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="tweetTapped:" destination="ri1-i8-04p" id="5GZ-LQ-hap"/>
                                 </connections>

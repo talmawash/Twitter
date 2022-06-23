@@ -44,6 +44,17 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
+    
+    if (self.draftText.text.length > 260) {
+        self.countLabel.tintColor = [UIColor redColor];
+    }
+    else if (self.draftText.text.length > 240) {
+        self.countLabel.tintColor = [UIColor orangeColor];
+    }
+    else {
+        self.countLabel.tintColor = [UIColor lightGrayColor];
+    }
+    
     if (self.draftText.text.length > 280) {
         self.draftText.text = [self.draftText.text substringWithRange:NSMakeRange(0, 280)];
     }
